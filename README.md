@@ -51,6 +51,7 @@
 
 ### 엔티티 매니저 팩토리와 엔티티 매니저
 <img src="https://github.com/JungwooSim/inflearn-JPA-ORM-BASIC/blob/master/img/img-1.png" width="500px;">
+- 팩토리에서 매니저를 생성하여 할당
 
 #### 영속성 컨텍스트
 - "엔티티를 영구저장하는 환경" 이라는 뜻
