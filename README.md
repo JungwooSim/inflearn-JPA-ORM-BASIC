@@ -50,7 +50,7 @@
 - 표준
 
 ### 엔티티 매니저 팩토리와 엔티티 매니저
-// img
+<img src="https://github.com/JungwooSim/inflearn-JPA-ORM-BASIC/blob/master/img/img-1.png" width="500px;">
 
 #### 영속성 컨텍스트
 - "엔티티를 영구저장하는 환경" 이라는 뜻
@@ -62,8 +62,7 @@
 - 영속 (managed) : 영속성 컨텍스트에 관리되는 상태
 - 준영속 (detached) : 영속성 컨텍스트에 저장되었다가 분리된 상태
 - 삭제 (removed) : 삭제된 상태
-
-// img
+<img src="https://github.com/JungwooSim/inflearn-JPA-ORM-BASIC/blob/master/img/img-2.png" width="500px;">
 
 #### 영속성 컨텍스트의 이점
 - 1차 캐시
