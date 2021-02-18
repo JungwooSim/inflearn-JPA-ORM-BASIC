@@ -11,6 +11,54 @@ public class JpaMain {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+        try {
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member.getId()); // left join 하여 가져옴. (현재는)
+            Team findTeam = findMember.getTeam();
+
+            System.out.println("findTeamName = " + findTeam.getName());
+
+            /*
+            작성 순서 - 2
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeamId(team.getId());
+            em.persist(member);
+             */
+
+            tx.commit();
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+
+        emf.close(); // 실제 어플리케이션이 끝나면 close 필요
+
+        /*
+        작성 순서 - 1
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");// xml 에서 설정한 값, db당 하나만 생성
+
+        EntityManager em = emf.createEntityManager(); // 쓰레드간에 공유하면 안됨. 사용하고 버려야 함.
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
         try {
             // save
@@ -44,5 +92,7 @@ public class JpaMain {
         }
 
         emf.close(); // 실제 어플리케이션이 끝나면 close 필요
+         */
+
     }
 }
