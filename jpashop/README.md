@@ -21,12 +21,12 @@
 - 단방향 매핑을 잘하고 양방향은 필요할 때 추가해도 됨 (테이블에 영향 주지 않음)
 > 단방향만 미리 설계 후 양방향은 필요로할 때 추가하면 된다.
 
+---
+
 ### 실전 예제 - 관계형 데이터베이스와 객체 스키마
 <img src="/img/img-1.png" width="500px;">
-- 엔티티 관계
-
+<p align="center">엔티티 관계</p>
 <img src="/img/img-2.png" width="500px;">
-- ERD
-
+<p align="center">ERD</p>
 <img src="/img/img-3.png" width="500px;">
-- 엔티티 상세
+<p align="center">엔티티 상세</p>
