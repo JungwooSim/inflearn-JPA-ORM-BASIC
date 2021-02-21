@@ -24,9 +24,14 @@
 ---
 
 ### 실전 예제 - 관계형 데이터베이스와 객체 스키마
-<img src="/img/img-1.png" width="500px;">
-<p align="center">엔티티 관계</p>
-<img src="/img/img-2.png" width="500px;">
-<p align="center">ERD</p>
-<img src="/img/img-3.png" width="500px;">
-<p align="center">엔티티 상세</p>
+<img src="/jpashop/img/img-1.png" width="500px;">
+
+- 엔티티 관계
+
+<img src="/jpashop/img/img-2.png" width="500px;">
+
+- ERD
+
+<img src="/jpashop/img/img-3.png" width="500px;">
+
+- 엔티티 상세
