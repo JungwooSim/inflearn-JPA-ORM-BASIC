@@ -1,7 +1,9 @@
 package hellojpa;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -12,6 +14,22 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            // 작성 순서 - 5 고급매핑 - 상속관계 메핑
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbb");
+            movie.setName("바람과함께사라지다");
+            movie.setPrice(10000);
+
+            em.persist(movie);
+
+            em.flush();
+            em.clear();
+
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
+            tx.commit();
+            /*
             // 작성 순서 - 4 양방향 연관관계와 연관관계의 주인
             Team team = new Team();
             team.setName("TeamA");
@@ -31,6 +49,8 @@ public class JpaMain {
             for (Member m : members) {
                 System.out.println("m.getUsername() = " + m.getUsername());
             }
+            tx.commit();
+             */
 
             /*
             # 작성 순서 - 3
@@ -50,6 +70,7 @@ public class JpaMain {
             Team findTeam = findMember.getTeam();
 
             System.out.println("findTeamName = " + findTeam.getName());
+            tx.commit();
              */
 
             /*
@@ -62,9 +83,8 @@ public class JpaMain {
             member.setUsername("member1");
             member.setTeamId(team.getId());
             em.persist(member);
-             */
-
             tx.commit();
+             */
         } catch (Exception ex) {
             tx.rollback();
         } finally {
