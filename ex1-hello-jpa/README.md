@@ -40,7 +40,7 @@
 - @Inheritance(strategy = InheritanceType.XXX)
   - JOINED : 조인 전략
   - SINGLE_TABLE : 단일 테이블 전략
-  - TABLE_PER_CLASS : 구현 클래스마다 테이블 전략
+  - TABLE_PER_CLASS : 구현 클래스마다 테이블 전략 
 - @DiscriminatorColumn(name="DTYPE")
 - @DiscriminatorValue("XXX")
 
@@ -58,3 +58,20 @@
 > 참고 : @Entity 클래스는 @Entity, @MappedSuperclass 로 지정한 클래스만 상속 가능하다.
 
 ---
+### 8. 프록시와 연관관계 관리
+#### 프록시 기초
+- em.find() vs em.getReference()
+- em.find() : 데이터베이스를 통해서 **실제 엔티티 객체 조회**
+- em.getReference() : 데이터베이스 조회를 미루는 **가짜(프록시) 엔티티 객체 조회**
+
+#### 프록시 특징
+- 실제 클래스를 **상속** 받아서 만들어 진다. -> 타입 체크시 주의해야 한다.(== 비교 대신 instance of 사용)
+- 실제 클래스와 **겉 모양이 같다.**
+- **사용하는 입장에서는** 진짜 객체인지 프록시 객체인지 **구분하지 않고 사용**하면 된다.
+- 프록시 객체는 실제 객채의 **참조(target)를 보관**
+- **프록시 객체를 호출하면** 프록시 객체는 **실제 객체의 메소드 호출**
+- 프록시 객체는 **처음 사용할 때 한번만 초기화**한다.생
+- 프록시 객체를 초기화 할 떄, 프록시 객체가 실제 엔티티로 바뀌는 것은 아니다.<br>초기화되면 프록시 객체를 통해서 실제 엔티티에 접근 가능하다.
+- 영속성 컨텍스트에 찾는 엔티티가 이미 있으면, em.getReference()를 호출해도 실제 엔티티 반환 한다.
+- 영속성 컨텍스트의 도움을 받을 수 없는 준영속 상태일 떼, 프록시를 초기화하면 문제 발생<br>(하이버네이트는 org.hibernate.LazyInitializationException 예외 발)
+
