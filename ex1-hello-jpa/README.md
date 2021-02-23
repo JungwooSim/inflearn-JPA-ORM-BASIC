@@ -43,3 +43,18 @@
   - TABLE_PER_CLASS : 구현 클래스마다 테이블 전략
 - @DiscriminatorColumn(name="DTYPE")
 - @DiscriminatorValue("XXX")
+
+---
+### @MappedSuperclass : 공통 매핑 정보가 필요할 때 사용 
+- 상속관계 매핑 X
+- 엔티티 X -> 테이블과 매핑 X
+- 상속 받는 자식 클래스에 매핑 정보만 제공
+- 조회, 검색 불가( em.find(BaseEntity) 불가 )
+- 직접 생성해서 사용할 일이 없으므로 추상 클래스 권장
+
+#### 간단한 정리
+- 테이블과 관계 없고, 단순히 엔티티가 공통으로 사용하는 매핑 정보를 모우는 역할
+- 주로 등록일, 수정일, 등록자, 수정자 같은 전체 엔티티에서 공통으로 정보를 모을 때 사용
+> 참고 : @Entity 클래스는 @Entity, @MappedSuperclass 로 지정한 클래스만 상속 가능하다.
+
+---
