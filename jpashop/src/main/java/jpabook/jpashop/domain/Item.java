@@ -11,7 +11,9 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 전략이 바뀔때는 이 부분 수정해주면 된다.
+@DiscriminatorColumn
+public abstract class Item extends BaseEntity {
     @Id @GeneratedValue
     @Column(name = "ITEM_ID")
     private Long Id;

@@ -22,8 +22,7 @@
 > 단방향만 미리 설계 후 양방향은 필요로할 때 추가하면 된다.
 
 ---
-
-### 실전 예제 - 관계형 데이터베이스와 객체 스키마
+### 실전 예제 3 - 관계형 데이터베이스와 객체 스키마
 <img src="/jpashop/img/img-1.png" width="500px;">
 
 - 엔티티 관계
@@ -35,3 +34,10 @@
 <img src="/jpashop/img/img-3.png" width="500px;">
 
 - 엔티티 상세
+
+---
+### 실전 예제 4 - 상속관계 매핑
+
+<img src="/jpashop/img/img-4.png" width="500px;"><br>
+<img src="/jpashop/img/img-5.png" width="500px;"><br>
+<img src="/jpashop/img/img-6.png" width="500px;"><br>
