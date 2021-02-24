@@ -20,7 +20,8 @@ public class Member extends BaseEntity {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // 지연로딩
+//    @ManyToOne(fetch = FetchType.EAGER) // 즉시로딩
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
