@@ -14,6 +14,18 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            // 작성 순서 - 6 프록시와 연관관계 - 영속성 전이
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
+
+            tx.commit();
+            /*
             // 작성 순서 - 5 고급매핑 - 상속관계 메핑
             Movie movie = new Movie();
             movie.setDirector("aaaa");
@@ -29,6 +41,7 @@ public class JpaMain {
             Movie findMovie = em.find(Movie.class, movie.getId());
             System.out.println("findMovie = " + findMovie);
             tx.commit();
+            */
             /*
             // 작성 순서 - 4 양방향 연관관계와 연관관계의 주인
             Team team = new Team();
